@@ -27,6 +27,8 @@ How To Run Tests
 
 2) Download Selenium WebDriver from https://chromedriver.chromium.org/downloads (choose version which is compatible with your browser)
 
+chromedriver.exe поместить в UI-TESTS_EXAMPLE
+
 3) Run tests:
 
     ```bash
@@ -37,3 +39,9 @@ How To Run Tests
 
 Note:
 ~/chrome in this example is the file of Selenium WebDriver downloaded and unarchived on step #2.
+
+Для просмотра отчетов с помощью allure:
+pytest tests/test_aris.py --driver Chrome --alluredir=allureress
+allure serve allureress
+
+Скриншоты смотреть в Allure -> Suites -> Tear down -> web_browser -> attachment

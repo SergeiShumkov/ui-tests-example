@@ -127,3 +127,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# My data
+my_data.py
+
+# My files
+allureress/
+screenshots/
+test.py
+
+# ChromeDriver
+chromedriver.exe
