@@ -15,7 +15,9 @@ def chrome_options(chrome_options):
     # chrome_options.binary_location = '/usr/bin/google-chrome-stable'
     # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--log-level=DEBUG')
+    # chrome_options.add_argument('--log-level=DEBUG')
+    """Добавлено, чтобы не было сообщений 
+    'Bluetooth: bluetooth_adapter_winrt.cc:1055 Getting Default Adapter failed.'"""
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
     
     return chrome_options
@@ -25,10 +27,15 @@ def chrome_options(chrome_options):
 def pytest_runtest_makereport(item, call):
     # This function helps to detect that some test failed
     # and pass this information to teardown:
-
+    
+    # выполняем все остальные хуки, чтобы получить report object
     outcome = yield
     rep = outcome.get_result()
+
+    # устанавливаем атрубут отчета на каждом этапе вызова:
+    # "setup", "call", "teardown"
     setattr(item, "rep_" + rep.when, rep)
+    
     return rep
 
 
@@ -57,6 +64,7 @@ def web_browser(request, selenium):
                           attachment_type=allure.attachment_type.PNG)
 
             # For happy debugging:
+            print()
             print('URL: ', browser.current_url)
             print('Browser logs:')
             for log in browser.get_log('browser'):

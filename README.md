@@ -40,8 +40,11 @@ chromedriver.exe поместить в UI-TESTS_EXAMPLE
 Note:
 ~/chrome in this example is the file of Selenium WebDriver downloaded and unarchived on step #2.
 
-Для просмотра отчетов с помощью allure:
-pytest tests/test_aris.py --driver Chrome --alluredir=allureress
-allure serve allureress
-
+4) Для просмотра отчетов с помощью allure:
+    ```bash
+    pytest tests/test_aris.py --driver Chrome --alluredir=allureress
+    ```
+    ```bash
+    allure serve allureress
+    ```
 Скриншоты смотреть в Allure -> Suites -> Tear down -> web_browser -> attachment

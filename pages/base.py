@@ -48,7 +48,10 @@ class WebPage(object):
         self._web_driver.save_screenshot(file_name)
 
     def scroll_down(self, offset=0):
-        """ Scroll the page down. """
+        """ Scroll the page down.
+        Если задан параметр offset, то скроллим на определенное количество пикселей.
+        Если offset=0, то до конца страницы.
+         """
 
         if offset:
             self._web_driver.execute_script('window.scrollTo(0, {0});'.format(offset))
